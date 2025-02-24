@@ -19,5 +19,7 @@ jobs:
           echo teeeeeest
           echo aaaaaa >> test.txt
 
+      - run: whoami
+
       - name: docker hello-world
         run: docker run hello-world
