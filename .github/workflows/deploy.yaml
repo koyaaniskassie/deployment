@@ -14,12 +14,14 @@ jobs:
     runs-on: self-hosted
     timeout-minutes: 5
     steps:
-      - name: testing
-        run: |
-          echo teeeeeest
-          echo aaaaaa >> test.txt
+      - name: create context
+        run: docker context create gha-demo --docker "host=ssh://kassie@192.168.1.128"
 
-      - run: whoami
+      - name: change context
+        run: docker context use gha-demo
 
-      - name: docker hello-world
-        run: docker run hello-world
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: docker compose up
+        run: docker compose up -d
