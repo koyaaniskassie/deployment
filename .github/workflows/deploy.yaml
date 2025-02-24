@@ -9,6 +9,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build:
+    name: build demo app
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: build
+        continue-on-error: true
+        run: docker context create gha-demo --docker "host=ssh://kassie@192.168.1.128"
+
   deploy:
     name: Deploy demo app
     runs-on: self-hosted
