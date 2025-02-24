@@ -17,4 +17,4 @@ jobs:
       - name: testing
         run: |
           echo teeeeeest
-          echo aaaaaa > test.txt
+          echo aaaaaa >> test.txt
