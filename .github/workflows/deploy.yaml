@@ -15,6 +15,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: create context
+        continue-on-error: true
         run: docker context create gha-demo --docker "host=ssh://kassie@192.168.1.128"
 
       - name: change context
